@@ -152,4 +152,4 @@ extracted from this document into its own file.
   `MovieBookingService.cancelBookingWithRefund`) but `MovieBookingApp`'s
   `main` method does not yet call them.
 - For the full refund policy (100%/50%/0% thresholds), see
-  `MovieBookingApp_Wireframe.md` and `MovieBookingApp_PRD.md` (Epic 7).
+  `MovieBookingApp_Wireframe.md` and `../../../requirementdocs/MovieBookingApp_PRD.md` (Epic 7).

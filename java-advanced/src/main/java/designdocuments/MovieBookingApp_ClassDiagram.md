@@ -1,7 +1,7 @@
 # Movie Booking App — Class Diagram
 
 This diagram covers all classes in `com.modernjava.movieapp.moviebookingapp`
-and how they relate, based on `MovieBookingApp.java` (entry point),
+and how they relate, based on `../MovieBookingApp.java` (entry point),
 `MovieBookingService.java` (service/business logic), the domain models
 (`Movie`, `Showtime`, `Booking`, `CastMember`, `ShowtimeInfo`), and the data
 loader (`MovieCatalogLoader`).

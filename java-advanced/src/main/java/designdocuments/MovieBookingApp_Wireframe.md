@@ -1,6 +1,6 @@
 # Movie Booking App — Wireframe
 
-Text/ASCII wireframes for every screen described in `MovieBookingApp_PRD.md`.
+Text/ASCII wireframes for every screen described in `../../../../requirementdocs/MovieBookingApp_PRD.md`.
 Screens map 1:1 to epics MOVIE-APP-1 through MOVIE-APP-6, plus a **new**
 screen (MOVIE-APP-7, below) for the future cancellation & refund flow.
 

@@ -68,7 +68,7 @@ specification in Phase 2:
 
 ## Phase 2 — Requirements Specification (PRD)
 
-**Artifact:** `MovieBookingApp_PRD.md`
+**Artifact:** `../../../../requirementdocs/MovieBookingApp_PRD.md`
 
 Refines the business requirements in `MovieBookingApp_BRD.md` into a
 JIRA-importable Product Requirements Document:
@@ -101,13 +101,13 @@ different view of the same system:
 
 | Artifact | View | Content |
 |---|---|---|
-| `MovieBooking_Hi-Fi_Wireframe.md` | Visual mock | Original ASCII hero-banner/tab-bar mockup (nav bar, hero backdrop, Overview tab, production details, cast) that inspired the PRD's screen descriptions. |
-| `MovieBookingApp_Wireframe.md` | Screen flow (PRD-driven) | ASCII wireframes for all 7 screens (catalog → detail → hero actions → showtime → seats → confirmation → *future* cancellation/refund), plus the full Refund Policy table and a stub reference table. |
-| `MovieBookingApp_ClassDiagram.md` | Structure | Mermaid **class diagram** of every class in this package (`Movie`, `CastMember`, `ShowtimeInfo`, `Showtime`, `Booking`/`BookingStatus`, `MovieBookingService`, `MovieCatalogLoader`, `MovieBookingApp`) with fields, methods, and composition/aggregation/dependency relationships. |
-| `MovieBookingApp_UseCaseDiagram.md` | Behavior (actors) | Mermaid **use-case diagram** (Ticket Buyer, Clerk, Movies Website actors) with `<<include>>` relationships. |
-| `MovieBookingApp_Lo-Fi_Wireframe.md` | Screen flow (UML-driven) | Re-derives the same 7 screens directly from the class diagram, annotating each screen with the exact class/method calls that produce it. |
-| `MovieBookingApp_SequenceDiagram.md` | Interaction | Mermaid **sequence diagram** showing the full object-interaction timeline across `MovieBookingApp → MovieCatalogLoader → MovieBookingService → Movie/Showtime/Booking`, including the future cancellation/refund stub. |
-| `MovieBookingApp_Prompt.md` | Plain-language recap | Describes `MovieBookingApp`'s collaborators, step-by-step workflow, key design notes, and an example console run — the design team's narrative walkthrough of the system, recapping all the diagrams above in plain language. |
+| `../designdocuments/MovieBooking_Hi-Fi_Wireframe.md` | Visual mock | Original ASCII hero-banner/tab-bar mockup (nav bar, hero backdrop, Overview tab, production details, cast) that inspired the PRD's screen descriptions. |
+| `../designdocuments/MovieBookingApp_Wireframe.md` | Screen flow (PRD-driven) | ASCII wireframes for all 7 screens (catalog → detail → hero actions → showtime → seats → confirmation → *future* cancellation/refund), plus the full Refund Policy table and a stub reference table. |
+| `../designdocuments/MovieBookingApp_ClassDiagram.md` | Structure | Mermaid **class diagram** of every class in this package (`Movie`, `CastMember`, `ShowtimeInfo`, `Showtime`, `Booking`/`BookingStatus`, `MovieBookingService`, `MovieCatalogLoader`, `MovieBookingApp`) with fields, methods, and composition/aggregation/dependency relationships. |
+| `../designdocuments/MovieBookingApp_UseCaseDiagram.md` | Behavior (actors) | Mermaid **use-case diagram** (Ticket Buyer, Clerk, Movies Website actors) with `<<include>>` relationships. |
+| `../designdocuments/MovieBookingApp_Lo-Fi_Wireframe.md` | Screen flow (UML-driven) | Re-derives the same 7 screens directly from the class diagram, annotating each screen with the exact class/method calls that produce it. |
+| `../designdocuments/MovieBookingApp_SequenceDiagram.md` | Interaction | Mermaid **sequence diagram** showing the full object-interaction timeline across `MovieBookingApp → MovieCatalogLoader → MovieBookingService → Movie/Showtime/Booking`, including the future cancellation/refund stub. |
+| `../agenticAIPrompt/MovieBookingApp_Prompt.md` | Plain-language recap | Describes `MovieBookingApp`'s collaborators, step-by-step workflow, key design notes, and an example console run — the design team's narrative walkthrough of the system, recapping all the diagrams above in plain language. |
 
 > *SDLC equivalent:* UML design artifacts (class diagrams, use-case
 > diagrams, sequence diagrams) and UI wireframes (lo-fi and hi-fi) produced
@@ -121,14 +121,14 @@ different view of the same system:
 
 | Class | Layer | Role |
 |---|---|---|
-| `Movie.java` | Domain model | Immutable: title, rating, duration, genres, description, production details, cast, keywords. |
-| `CastMember.java` | Domain model | Record: actor → character pairing for the "Top Cast" section. |
-| `ShowtimeInfo.java` | Domain model | Record: per-movie showtime config (times, theatre, price, seat-grid size) loaded from properties. |
-| `Showtime.java` | Domain model | A bookable screening; owns the `boolean[][]` seat map; exposes `isSeatAvailable`, `bookSeat`, `releaseSeat` *(stub)*, `printSeatMap`, `getAvailableSeats`. |
-| `Booking.java` | Domain model | A reservation: ID, user, showtime, seats, `BookingStatus` (`PENDING`/`CONFIRMED`/`CANCELLED`), total price. |
-| `MovieCatalogLoader.java` | Data access | Reads `movies.properties` from the classpath and builds the `Movie` catalog + `Map<Movie, ShowtimeInfo>` — keeps all data external/configurable instead of hardcoded. |
-| `MovieBookingService.java` | Service layer | `browseMovies`, `viewMovieDetails`, `playMovie`/`addToWatchlist`/`likeMovie`, `bookTickets`, `confirmBooking`, and the stubbed `calculateRefundAmount`/`cancelBookingWithRefund` (Epic 7). |
-| `MovieBookingApp.java` | Entry point | `main` method; pure orchestration — reads `Scanner` input, delegates all business logic to the service layer, implements the 3-option seat-selection menu (Default `C1,C4,C3` / Manual / AI Random). |
+| `../Movie.java` | Domain model | Immutable: title, rating, duration, genres, description, production details, cast, keywords. |
+| `../CastMember.java` | Domain model | Record: actor → character pairing for the "Top Cast" section. |
+| `../ShowtimeInfo.java` | Domain model | Record: per-movie showtime config (times, theatre, price, seat-grid size) loaded from properties. |
+| `../Showtime.java` | Domain model | A bookable screening; owns the `boolean[][]` seat map; exposes `isSeatAvailable`, `bookSeat`, `releaseSeat` *(stub)*, `printSeatMap`, `getAvailableSeats`. |
+| `../Booking.java` | Domain model | A reservation: ID, user, showtime, seats, `BookingStatus` (`PENDING`/`CONFIRMED`/`CANCELLED`), total price. |
+| `../MovieCatalogLoader.java` | Data access | Reads `movies.properties` from the classpath and builds the `Movie` catalog + `Map<Movie, ShowtimeInfo>` — keeps all data external/configurable instead of hardcoded. |
+| `../MovieBookingService.java` | Service layer | `browseMovies`, `viewMovieDetails`, `playMovie`/`addToWatchlist`/`likeMovie`, `bookTickets`, `confirmBooking`, and the stubbed `calculateRefundAmount`/`cancelBookingWithRefund` (Epic 7). |
+| `../MovieBookingApp.java` | Entry point | `main` method; pure orchestration — reads `Scanner` input, delegates all business logic to the service layer, implements the 3-option seat-selection menu (Default `C1,C4,C3` / Manual / AI Random). |
 
 > *SDLC equivalent:* Development phase — turning the design artifacts above
 > into compiling, running code, following a clean separation of domain
@@ -141,19 +141,19 @@ different view of the same system:
 Performed interactively during development (no dedicated test classes yet
 in this package):
 
-- `javac` compilation checks after every change (`MovieBookingApp.java`,
+- `javac` compilation checks after every change (`../MovieBookingApp.java`,
   `MovieBookingService.java`, `Showtime.java`).
 - Manual console runs piping scripted input (e.g. `printf "1\n2\n1\n" | java
   ... MovieBookingApp`) to verify the default-seat option (`C1,C4,C3`)
   books correctly and the seat map reflects `[X]` afterward.
-- `MovieBookingApp_PRD.md`'s acceptance criteria double as manual test
+- `../../../../requirementdocs/MovieBookingApp_PRD.md`'s acceptance criteria double as manual test
   cases per story (e.g. "invalid movie choice defaults to #1").
 
 > *SDLC equivalent:* Manual/exploratory testing against acceptance
 > criteria. **Gap/next step:** add JUnit tests for `MovieBookingService`,
 > `Showtime`, and `Booking` — these classes are already decoupled from
 > console I/O, so they're unit-testable without `Scanner` mocking (see
-> `MovieBookingApp_PRD.md` §7, Non-Functional Requirements).
+> `../../../../requirementdocs/MovieBookingApp_PRD.md` §7, Non-Functional Requirements).
 
 ---
 
@@ -182,10 +182,10 @@ implementation artifacts so the next contributor knows exactly what's left:
 
 | Backlog item | Where it's tracked | Current state |
 |---|---|---|
-| Wire "My Bookings" + Cancel/Refund into the console menu | `MovieBookingApp_PRD.md` Epic 7, `MovieBookingApp_Wireframe.md` Screen 7 | Service methods implemented (`calculateRefundAmount`, `cancelBookingWithRefund`, `Showtime.releaseSeat`) but not called from `MovieBookingApp.main()`. |
-| Partial-seat cancellation within a multi-seat booking | `MovieBookingApp_PRD.md` §8 Out of Scope | Not started. |
-| Persistent storage (DB/file) across runs | `MovieBookingApp_PRD.md` §8 | Not started; all state is in-memory per run. |
-| Payment gateway integration | `MovieBookingApp_PRD.md` §8 | Simulated total-price calculation only. |
+| Wire "My Bookings" + Cancel/Refund into the console menu | `../../../../requirementdocs/MovieBookingApp_PRD.md` Epic 7, `designdocuments/MovieBookingApp_Wireframe.md` Screen 7 | Service methods implemented (`calculateRefundAmount`, `cancelBookingWithRefund`, `Showtime.releaseSeat`) but not called from `MovieBookingApp.main()`. |
+| Partial-seat cancellation within a multi-seat booking | `../../../../requirementdocs/MovieBookingApp_PRD.md` §8 Out of Scope | Not started. |
+| Persistent storage (DB/file) across runs | `../../../../requirementdocs/MovieBookingApp_PRD.md` §8 | Not started; all state is in-memory per run. |
+| Payment gateway integration | `../../../../requirementdocs/MovieBookingApp_PRD.md` §8 | Simulated total-price calculation only. |
 | Unit tests for service/domain classes | This document, Phase 5 | Not started; classes are already decoupled and test-ready. |
 
 > *SDLC equivalent:* Maintenance phase — backlog grooming, with every
@@ -199,9 +199,9 @@ implementation artifacts so the next contributor knows exactly what's left:
 | SDLC Phase | Artifact(s) in this directory |
 |---|---|
 | 1. Requirements Gathering | `MovieBookingApp_BRD.md` |
-| 2. Requirements Specification | `MovieBookingApp_PRD.md` |
-| 3. Design | `MovieBooking_Hi-Fi_Wireframe.md`, `MovieBookingApp_Wireframe.md`, `MovieBookingApp_ClassDiagram.md`, `MovieBookingApp_UseCaseDiagram.md`, `MovieBookingApp_Lo-Fi_Wireframe.md`, `MovieBookingApp_SequenceDiagram.md`, `MovieBookingApp_Prompt.md` |
-| 4. Implementation | `Movie.java`, `CastMember.java`, `ShowtimeInfo.java`, `Showtime.java`, `Booking.java`, `MovieCatalogLoader.java`, `MovieBookingService.java`, `MovieBookingApp.java` |
-| 5. Testing / Verification | Manual compile/run checks against `MovieBookingApp_PRD.md` acceptance criteria |
+| 2. Requirements Specification | `../../../../requirementdocs/MovieBookingApp_PRD.md` |
+| 3. Design | `../designdocuments/MovieBooking_Hi-Fi_Wireframe.md`, `designdocuments/MovieBookingApp_Wireframe.md`, `designdocuments/MovieBookingApp_ClassDiagram.md`, `designdocuments/MovieBookingApp_UseCaseDiagram.md`, `designdocuments/MovieBookingApp_Lo-Fi_Wireframe.md`, `designdocuments/MovieBookingApp_SequenceDiagram.md`, `agenticAIPrompt/MovieBookingApp_Prompt.md` |
+| 4. Implementation | `../Movie.java`, `CastMember.java`, `ShowtimeInfo.java`, `Showtime.java`, `Booking.java`, `MovieCatalogLoader.java`, `MovieBookingService.java`, `MovieBookingApp.java` |
+| 5. Testing / Verification | Manual compile/run checks against `../../../../requirementdocs/MovieBookingApp_PRD.md` acceptance criteria |
 | 6. Deployment / Usage | Gradle/`javac` build + `movies.properties` config |
-| 7. Maintenance / Future Backlog | `MovieBookingApp_PRD.md` §8, `MovieBookingApp_Wireframe.md` §7 (stub notes) |
+| 7. Maintenance / Future Backlog | `../../../../requirementdocs/MovieBookingApp_PRD.md` §8, `designdocuments/MovieBookingApp_Wireframe.md` §7 (stub notes) |

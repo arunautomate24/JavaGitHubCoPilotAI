@@ -7,7 +7,7 @@
 | **Owner** | Arun Kumar |
 | **Status** | Draft |
 | **Target Release** | v1.0 |
-| **Related Files** | `MovieBookingApp.java`, `MovieBookingService.java`, `Movie.java`, `Showtime.java`, `Booking.java`, `MovieCatalogLoader.java`, `MovieBooking.md` |
+| **Related Files** | `../com/modernjava/moviebookingapp/MovieBookingApp.java`, `MovieBookingService.java`, `Movie.java`, `Showtime.java`, `Booking.java`, `MovieCatalogLoader.java`, `MovieBooking.md` |
 
 ---
 
@@ -201,7 +201,7 @@ suitable for import into JIRA, with acceptance criteria for each.
 **Description:** Allow a ticket buyer (or clerk) to cancel an existing
 booking and receive a refund according to a defined refund policy. The
 service-layer logic is implemented today as a stub; the console menu is not
-yet wired up. See `MovieBookingApp_Wireframe.md` (section 7) for proposed
+yet wired up. See `../com/modernjava/moviebookingapp/designdocuments/MovieBookingApp_Wireframe.md` (section 7) for proposed
 screens.
 
 - **MOVIE-APP-7.1** — As a ticket buyer, I want to view my existing bookings
@@ -249,7 +249,7 @@ screens.
 | Booking already cancelled | 0% (not re-cancellable) |
 
 Refund amount = `booking.getTotalPrice() * refundRate`. See
-`MovieBookingApp_Wireframe.md` for full policy notes and proposed UI.
+`../com/modernjava/moviebookingapp/designdocuments/MovieBookingApp_Wireframe.md` for full policy notes and proposed UI.
 
 ## 6. Functional Requirements Summary
 
